@@ -3,4 +3,4 @@
 ## Basadur info
 
 - https://www.basadurprofile.com/
-- http://www.basadur.com/
+- https://www.basadurprofile.com/about.aspx
