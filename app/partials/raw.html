@@ -1,0 +1,32 @@
+<div class="pg-hd pg-hd-wide">
+  <h1>Raw data</h1>
+  <small>nothing to see here. move along...</small>
+</div>
+
+<style>
+  span {
+    color: #ddd;
+  }
+  pre,
+  pre span,
+  pre strong {
+    font-size: 12px;
+    line-height: .725;
+    font-family: monospace;
+  }
+  .raw-data-bar {
+    font-family: sans-serif;
+  }
+</style>
+<div ng-repeat="it in team" style="font-family: monospace; line-height: 1; margin: 0 0 1em;">
+
+  <pre>
+    <strong>{{ it.initials }} - {{ it.name }}</strong>  <span class="text-quad-{{ getQuadrantData(it.stylePrefs[3], 'id') }}">{{ getQuadrantData(it.stylePrefs[3], 'name') }}</span> <br>
+    gain by exper  [{{ it.gain.exper }}]  <span class="raw-data-bar text-y-experiencing">{{ showChars('&block;', it.gain.exper) }} {{ showChars(' ', (60 - it.gain.exper)) }}</span> <br>
+    gain by think  [{{ it.gain.think }}]  <span class="raw-data-bar text-y-thinking">{{ showChars('&block;', it.gain.think) }} {{ showChars(' ', (60 - it.gain.think)) }}</span><br>
+    usage by idea  [{{ it.use.idea }}]  <span class="raw-data-bar text-x-ideation">{{ showChars('&block;', it.use.idea) }} {{ showChars(' ', (60 - it.use.idea)) }}</span><br>
+    usage by eval  [{{ it.use.eval }}]  <span class="raw-data-bar text-x-evaluation">{{ showChars('&block;', it.use.eval) }} {{ showChars(' ', (60 - it.use.eval)) }}</span></span>
+  </pre>
+  <br>
+
+</div>

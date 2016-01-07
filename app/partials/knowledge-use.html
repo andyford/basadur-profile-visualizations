@@ -1,0 +1,113 @@
+<div class="pg-hd">
+  <h1>Using Knowledge</h1>
+  <small>Evaluation vs. Ideation (x-axis on Basadur graph). Click the column headers to sort.</small>
+</div>
+
+<table class="single-axis-chart">
+  <thead>
+    <tr>
+      <th class="text-left" ng-class="{active: predicate === 'use.pointsTotal'}">
+        <a href="" ng-click="predicate = 'use.pointsTotal'; reverse=!reverse">Tot</a>
+      </th>
+      <th>&nbsp;</th>
+      <th class="w-380 text-right" ng-class="{active: predicate === 'use.eval'}">
+        <a href="" ng-click="predicate = 'use.eval'; reverse=!reverse">&#8592;&#8592; Using Knowledge for <strong>Evaluating</strong> &#8592;&#8592; &nbsp;&nbsp;&nbsp;&nbsp;</a>
+      </th>
+      <th class="th-hover" ng-class="{active: predicate === 'initials'}">
+        <div class="avatar" ng-click="predicate = 'initials'; reverse=!reverse" style="font-size: 23px; text-indent: 0.1em;">☺</div>
+      </th>
+      <th class="w-380 text-left" ng-class="{active: predicate === 'use.idea'}">
+        <a href="" ng-click="predicate = 'use.idea'; reverse=!reverse">&nbsp;&nbsp;&nbsp;&nbsp; &#8594;&#8594; Using Knowledge for <strong>Ideating</strong> &#8594;&#8594;</a>
+      </th>
+      <th>&nbsp;</th>
+      <th class="text-left tbl-col-pref" ng-class="{active: predicate === 'use.index'}">
+        <a href="" ng-click="predicate = 'use.index'; reverse=!reverse">Preference</a>
+      </th>
+      <th>&nbsp;</th>
+      <th class="text-left" ng-class="{active: predicate === 'stylePrefs[3]'}">
+        <a href="" ng-click="predicate = 'stylePrefs[3]'; reverse=!reverse">Style</a>
+      </th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>
+        <div class="pull-right" style="position: relative; left: 4px; width: 360px; height: 16px; line-height: 16px; color: #bbb;">
+          <div style="border-left: 1px solid; text-indent: -0.075em; position: absolute; left: 0px;">
+            &#8592; high
+          </div>
+          <div style="border-left: 1px solid; text-indent: -0.075em; position: absolute; left: {{ ((profiles.evalMax - profiles.evalAvg) / profiles.evalMax) * 360 }}px;">
+            &#8592; avg
+          </div>
+          <div style="border-left: 1px solid; text-indent: -0.075em; position: absolute; left: {{ ((profiles.evalMax - profiles.evalMin) / profiles.evalMax) * 360 }}px;">
+            &#8592; low
+          </div>
+        </div>
+      </td>
+      <td></td>
+      <td>
+        <div class="pull-left" style="position: relative; left: -4px; width: 360px; height: 16px; line-height: 16px; color: #bbb;">
+          <div style="border-right: 1px solid; position: absolute; right: 0px;">high &#8594;</div>
+          <div style="border-right: 1px solid; position: absolute; right: {{ ((profiles.ideaMax - profiles.ideaAvg) / profiles.ideaMax) * 360 }}px;">avg &#8594;</div>
+          <div style="border-right: 1px solid; position: absolute; right: {{ ((profiles.ideaMax - profiles.ideaMin) / profiles.ideaMax) * 360 }}px;">low &#8594;</div>
+        </div>
+      </td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tfoot>
+  <tbody>
+    <tr><td colspan="9"></td></tr>
+    <tr ng-repeat="it in team | orderBy:predicate:reverse">
+      <td>
+        {{ it.use.idea + it.use.eval }}
+      </td>
+      <td>&nbsp;</td>
+      <td style="padding-right: 0;">
+        <div class="data-bar-container pull-right">
+          <div class="data-bar data-bar-comp data-bar-x-evaluation pos-right" style="width: 360px;">
+            <span class="data-bar-num">{{ it.use.eval }}</span>
+            <div class="data-bar-comp-sub data-bar-x-evaluation" style="width: {{ ((profiles.evalMax - profiles.evalMin) / profiles.evalMax) * 360 }}px;">
+              <div class="data-bar-comp-sub data-bar-x-evaluation pos-left" style="width: {{ ((profiles.evalMax - profiles.evalAvg) / profiles.evalMax) * 360 }}px;"></div>
+            </div>
+          </div>
+          <div class="data-bar pull-right" style="width: {{ (it.use.eval / profiles.evalMax) * 360 }}px;">
+            <div ng-if="it.use.eval > it.use.idea" class="data-bar data-bar-sub pull-right" style="width: {{ ((it.use.eval - it.use.idea) / profiles.evalMax) * 360 }}px;"></div>
+          </div>
+        </div>
+      </td>
+      <td style="padding-left: 0; padding-right: 0; background: rgba(0, 0, 0, .08);">
+        <div class="avatar">{{ it.initials }}</div>
+      </td>
+      <td style="padding-left: 0;">
+        <div class="data-bar-container pull-left">
+          <div class="data-bar data-bar-comp data-bar-x-ideation pos-left" style="width: 360px;">
+            <span class="data-bar-num data-bar-num-rt">{{ it.use.idea }}</span>
+            <div class="data-bar-comp-sub data-bar-x-ideation pos-right" style="width: {{ ((profiles.ideaMax - profiles.ideaMin) / profiles.ideaMax) * 360 }}px;">
+              <div class="data-bar-comp-sub data-bar-x-ideation pos-right" style="width: {{ ((profiles.ideaMax - profiles.ideaAvg) / profiles.ideaMax) * 360 }}px;"></div>
+            </div>
+          </div>
+          <div class="data-bar pull-left" style="width: {{ (it.use.idea / profiles.ideaMax) * 360 }}px">
+            <div ng-if="it.use.idea > it.use.eval" class="data-bar data-bar-sub pull-left" style="width: {{ ((it.use.idea - it.use.eval) / profiles.ideaMax) * 360 }}px;"></div>
+          </div>
+        </div>
+      </td>
+      <td>&nbsp;</td>
+      <td class="text-left">
+        <span class="text-x-{{ it.use.index > 0 ? 'ideation' : 'evaluation' }}">
+          <span style="display: inline-block; width: 2em; text-align: right;">{{ it.use.index }}</span>
+          &nbsp;&nbsp;
+          {{ it.use.index > 0 ? 'Ideation' : 'Evaluation' }}
+        </span>
+      </td>
+      <td>&nbsp;</td>
+      <td>
+        <span class="label style-color-{{ getQuadrantData(it.stylePrefs[3], 'id') }}">{{ getQuadrantData(it.stylePrefs[3], 'name') }}</span>
+      </td>
+    </tr>
+  </tbody>
+</table>

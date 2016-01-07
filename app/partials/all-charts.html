@@ -1,0 +1,76 @@
+<div class="pg-hd pg-hd-wide">
+  <h1>Basadur charts</h1>
+</div>
+
+<style>
+  .wrap {
+    margin: 0 0px 25px 20px;
+    float: left;
+  }
+  .wrap > p {
+    margin: 3px 0 0;
+    font-size: 14px;
+    text-align: center;
+    color: #666;
+  }
+  .svg-tbl {
+    margin: 0;
+    border-spacing: 1px;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: 100%;
+  }
+  .svg-tbl td {
+    padding: 0;
+    /*background: #eee;*/
+  }
+  .q-nw,
+  .q-nw svg {
+    text-align: right;
+    vertical-align: bottom;
+  }
+  .q-ne,
+  .q-ne svg {
+    text-align: left;
+    vertical-align: bottom;
+  }
+  .q-sw,
+  .q-sw svg {
+    text-align: right;
+    vertical-align: top;
+  }
+  .q-se,
+  .q-se svg {
+    text-align: left;
+    vertical-align: top;
+  }
+</style>
+
+<div class="wrap" ng-repeat="it in team">
+  <table class="svg-tbl">
+    <tr>
+      <td class="q-nw" style="width: {{ cellSize * mult }}px; height: {{ cellSize * mult }}px;">
+        <svg id="{{ it.initials }}-quad-implementer" width="{{ it.use.eval * mult }}" height="{{ it.gain.exper * mult }}" id="my-svg" style="border-top-left-radius: 100%;">
+          <rect class="ddd" x="0" y="0" width="{{ it.use.eval * mult }}" height="{{ it.gain.exper * mult }}" fill="{{ it.quadColors.imp }}" />
+        </svg>
+      </td>
+      <td class="q-ne" style="width: {{ cellSize * mult }}px; height: {{ cellSize * mult }}px;">
+        <svg id="{{ it.initials }}-quad-generator" width="{{ it.use.idea * mult }}" height="{{ it.gain.exper * mult }}" id="my-svg" style="border-top-right-radius: 100%;">
+          <rect x="0" y="0" width="{{ it.use.idea * mult }}" height="{{ it.gain.exper * mult }}" fill="{{ it.quadColors.gen }}" />
+        </svg>
+      </td>
+    </tr>
+    <tr>
+      <td class="q-sw" style="width: {{ cellSize * mult }}px; height: {{ cellSize * mult }}px;">
+        <svg id="{{ it.initials }}-quad-optimizer" width="{{ it.use.eval * mult }}" height="{{ it.gain.think * mult }}" id="my-svg" style="border-bottom-left-radius: 100%;">
+          <rect class="ddd" x="0" y="0" width="{{ it.use.eval * mult }}" height="{{ it.gain.think * mult }}" fill="{{ it.quadColors.opt }}" />
+        </svg>
+      </td>
+      <td class="q-se" style="width: {{ cellSize * mult }}px; height: {{ cellSize * mult }}px;">
+        <svg id="{{ it.initials }}-quad-conceptualizer" width="{{ it.use.idea * mult }}" height="{{ it.gain.think * mult }}" id="my-svg" style="border-bottom-right-radius: 100%;">
+          <rect class="ddd" x="0" y="0" width="{{ it.use.idea * mult }}" height="{{ it.gain.think * mult }}" fill="{{ it.quadColors.con }}" />
+        </svg>
+      </td>
+    </tr>
+  </table>
+  <p>{{ it.name }}</p>
+</div>

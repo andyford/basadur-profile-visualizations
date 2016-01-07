@@ -1,0 +1,280 @@
+{
+  "team": [
+    {
+      "name": "Ada Oyeleke",
+      "initials": "AO",
+      "gain": {
+        "exper": 23,
+        "think": 32
+      },
+      "use": {
+        "idea": 43,
+        "eval": 22
+      }
+    },
+    {
+      "name": "Andreas Busch",
+      "initials": "AB",
+      "gain": {
+        "exper": 24,
+        "think": 39
+      },
+      "use": {
+        "idea": 30,
+        "eval": 27
+      }
+    },
+    {
+      "name": "Andy Ford",
+      "initials": "AF",
+      "gain": {
+        "exper": 28,
+        "think": 38
+      },
+      "use": {
+        "idea": 18,
+        "eval": 36
+      }
+    },
+    {
+      "name": "Antonio Lavoie",
+      "initials": "AL",
+      "gain": {
+        "exper": 24,
+        "think": 32
+      },
+      "use": {
+        "idea": 33,
+        "eval": 31
+      }
+    },
+    {
+      "name": "Anouk Martens",
+      "initials": "AM",
+      "gain": {
+        "exper": 28,
+        "think": 25
+      },
+      "use": {
+        "idea": 34,
+        "eval": 33
+      }
+    },
+    {
+      "name": "Belmina Marjanović",
+      "initials": "BM",
+      "gain": {
+        "exper": 26,
+        "think": 36
+      },
+      "use": {
+        "idea": 17,
+        "eval": 41
+      }
+    },
+    {
+      "name": "Betty Henderson",
+      "initials": "BH",
+      "gain": {
+        "exper": 32,
+        "think": 24
+      },
+      "use": {
+        "idea": 30,
+        "eval": 34
+      }
+    },
+    {
+      "name": "Elin Zimmermann",
+      "initials": "EZ",
+      "gain": {
+        "exper": 35,
+        "think": 29
+      },
+      "use": {
+        "idea": 38,
+        "eval": 18
+      }
+    },
+    {
+      "name": "Eva Thomas",
+      "initials": "ET",
+      "gain": {
+        "exper": 34,
+        "think": 26
+      },
+      "use": {
+        "idea": 21,
+        "eval": 39
+      }
+    },
+    {
+      "name": "Fatima Masood",
+      "initials": "FM",
+      "gain": {
+        "exper": 23,
+        "think": 31
+      },
+      "use": {
+        "idea": 27,
+        "eval": 39
+      }
+    },
+    {
+      "name": "Frančiška Kastelic",
+      "initials": "FK",
+      "gain": {
+        "exper": 35,
+        "think": 28
+      },
+      "use": {
+        "idea": 23,
+        "eval": 34
+      }
+    },
+    {
+      "name": "Franco Rojas",
+      "initials": "FR",
+      "gain": {
+        "exper": 41,
+        "think": 19
+      },
+      "use": {
+        "idea": 28,
+        "eval": 32
+      }
+    },
+    {
+      "name": "José Reséndiz",
+      "initials": "JR",
+      "gain": {
+        "exper": 31,
+        "think": 30
+      },
+      "use": {
+        "idea": 19,
+        "eval": 40
+      }
+    },
+    {
+      "name": "Kilian Krämer",
+      "initials": "KK",
+      "gain": {
+        "exper": 38,
+        "think": 21
+      },
+      "use": {
+        "idea": 34,
+        "eval": 27
+      }
+    },
+    {
+      "name": "Kimberly Berry",
+      "initials": "KB",
+      "gain": {
+        "exper": 30,
+        "think": 27
+      },
+      "use": {
+        "idea": 39,
+        "eval": 24
+      }
+    },
+    {
+      "name": "Lisa Meyer",
+      "initials": "LM",
+      "gain": {
+        "exper": 23,
+        "think": 32
+      },
+      "use": {
+        "idea": 31,
+        "eval": 34
+      }
+    },
+    {
+      "name": "Louis Martinez",
+      "initials": "LM",
+      "gain": {
+        "exper": 31,
+        "think": 27
+      },
+      "use": {
+        "idea": 29,
+        "eval": 33
+      }
+    },
+    {
+      "name": "Luca Krause",
+      "initials": "LK",
+      "gain": {
+        "exper": 36,
+        "think": 23
+      },
+      "use": {
+        "idea": 23,
+        "eval": 38
+      }
+    },
+    {
+      "name": "Lữ Thanh",
+      "initials": "LT",
+      "gain": {
+        "exper": 37,
+        "think": 17
+      },
+      "use": {
+        "idea": 27,
+        "eval": 39
+      }
+    },
+    {
+      "name": "Pari Gupta",
+      "initials": "PG",
+      "gain": {
+        "exper": 26,
+        "think": 23
+      },
+      "use": {
+        "idea": 34,
+        "eval": 37
+      }
+    },
+    {
+      "name": "Pilar Velasco",
+      "initials": "PV",
+      "gain": {
+        "exper": 20,
+        "think": 33
+      },
+      "use": {
+        "idea": 38,
+        "eval": 29
+      }
+    },
+    {
+      "name": "Saiful Hadi",
+      "initials": "SH",
+      "gain": {
+        "exper": 31,
+        "think": 29
+      },
+      "use": {
+        "idea": 23,
+        "eval": 37
+      }
+    },
+    {
+      "name": "Yasmin Islam",
+      "initials": "YI",
+      "gain": {
+        "exper": 28,
+        "think": 34
+      },
+      "use": {
+        "idea": 35,
+        "eval": 23
+      }
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <title>Basadur profile visualizations</title>
+  <link rel="stylesheet" href="assets/css/app.css"/>
+</head>
+<body>
+  <ul class="menu" ng-controller="NavMainCtrl">
+    <li ng-class="{ active: isCurrentPath('/raw') }"><a href="#/raw">Raw Data</a></li>
+    <li ng-class="{ active: isCurrentPath('/using-knowledge') }"><a href="#/using-knowledge">Using Knowledge</a></li>
+    <li ng-class="{ active: isCurrentPath('/gaining-knowledge') }"><a href="#/gaining-knowledge">Gaining Knowledge</a></li>
+    <li ng-class="{ active: isCurrentPath('/1st-fave') }"><a href="#/1st-fave">1st Fave</a></li>
+    <li ng-class="{ active: isCurrentPath('/1st-2nd-fave') }"><a href="#/1st-2nd-fave">1st + 2nd Fave</a></li>
+    <li ng-class="{ active: isCurrentPath('/least-fave') }"><a href="#/least-fave">Least Fave</a></li>
+    <li ng-class="{ active: isCurrentPath('/all-charts') }"><a href="#/all-charts">All Charts</a></li>
+  </ul>
+
+  <div ng-view></div>
+
+  <script src="../bower_components/angular/angular.js"></script>
+  <script src="../bower_components/angular-route/angular-route.js"></script>
+  <script src="assets/js/underscore-min-1.6.0.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/services.js"></script>
+  <script src="assets/js/controllers.js"></script>
+  <script src="assets/js/filters.js"></script>
+  <script src="assets/js/directives.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+app/assets/img/avatar
+logs/*
+node_modules/
+tmp
+.DS_Store
+.idea
+.sass-cache

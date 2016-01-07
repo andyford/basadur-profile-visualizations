@@ -1,0 +1,113 @@
+<div class="pg-hd">
+  <h1>Gaining Knowledge</h1>
+  <small>Experiencing vs. Thinking (y-axis on Basadur graph). Click the column headers to sort.</small>
+</div>
+
+<table class="single-axis-chart">
+  <thead>
+    <tr>
+      <th class="text-left" ng-class="{active: predicate === 'gain.pointsTotal'}">
+        <a href="" ng-click="predicate = 'gain.pointsTotal'; reverse=!reverse">Tot</a>
+      </th>
+      <th>&nbsp;</th>
+      <th class="w-380 text-right" ng-class="{active: predicate === 'gain.think'}">
+        <a href="" ng-click="predicate = 'gain.think'; reverse=!reverse">&#8592;&#8592; Gaining Knowledge by <strong>Thinking</strong> &#8592;&#8592; &nbsp;&nbsp;&nbsp;&nbsp;</a>
+      </th>
+      <th class="th-hover" ng-class="{active: predicate === 'initials'}">
+        <div class="avatar" ng-click="predicate = 'initials'; reverse=!reverse" style="font-size: 23px; text-indent: 0.1em;">☺</div>
+      </th>
+      <th class="w-380 text-left" ng-class="{active: predicate === 'gain.exper'}">
+        <a href="" ng-click="predicate = 'gain.exper'; reverse=!reverse">&nbsp;&nbsp;&nbsp;&nbsp; &#8594;&#8594; Gaining Knowledge by <strong>Experiencing</strong> &#8594;&#8594;</a>
+      </th>
+      <th>&nbsp;</th>
+      <th class="text-left tbl-col-pref" ng-class="{active: predicate === 'gain.index'}">
+        <a href="" ng-click="predicate = 'gain.index'; reverse=!reverse">Preference</a>
+      </th>
+      <th>&nbsp;</th>
+      <th class="text-left" ng-class="{active: predicate === 'stylePrefs[3]'}">
+        <a href="" ng-click="predicate = 'stylePrefs[3]'; reverse=!reverse">Style</a>
+      </th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>
+        <div class="pull-right" style="position: relative; left: 4px; width: 360px; height: 16px; line-height: 16px; color: #bbb;">
+          <div style="border-left: 1px solid; text-indent: -0.075em; position: absolute; left: 0px;">
+            &#8592; high
+          </div>
+          <div style="border-left: 1px solid; text-indent: -0.075em; position: absolute; left: {{ ((profiles.thinkMax - profiles.thinkAvg) / profiles.thinkMax) * 360 }}px;">
+            &#8592; avg
+          </div>
+          <div style="border-left: 1px solid; text-indent: -0.075em; position: absolute; left: {{ ((profiles.thinkMax - profiles.thinkMin) / profiles.thinkMax) * 360 }}px;">
+            &#8592; low
+          </div>
+        </div>
+      </td>
+      <td></td>
+      <td>
+        <div class="pull-left" style="position: relative; left: -4px; width: 360px; height: 16px; line-height: 16px; color: #bbb;">
+          <div style="border-right: 1px solid; position: absolute; right: 0px;">high &#8594;</div>
+          <div style="border-right: 1px solid; position: absolute; right: {{ ((profiles.experMax - profiles.experAvg) / profiles.experMax) * 360 }}px;">avg &#8594;</div>
+          <div style="border-right: 1px solid; position: absolute; right: {{ ((profiles.experMax - profiles.experMin) / profiles.experMax) * 360 }}px;">low &#8594;</div>
+        </div>
+      </td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tfoot>
+  <tbody>
+    <tr><td colspan="7"></td></tr>
+    <tr ng-repeat="it in team | orderBy:predicate:reverse">
+      <td>
+        {{ it.gain.exper + it.gain.think }}
+      </td>
+      <td>&nbsp;</td>
+      <td style="padding-right: 0;">
+        <div class="data-bar-container pull-right">
+          <div class="data-bar data-bar-comp data-bar-y-thinking pos-right" style="width: 360px;">
+            <span class="data-bar-num">{{ it.gain.think }}</span>
+            <div class="data-bar-comp-sub data-bar-y-thinking" style="width: {{ ((profiles.thinkMax - profiles.thinkMin) / profiles.thinkMax) * 360 }}px;">
+              <div class="data-bar-comp-sub data-bar-y-thinking pos-left" style="width: {{ ((profiles.thinkMax - profiles.thinkAvg) / profiles.thinkMax) * 360 }}px;"></div>
+            </div>
+          </div>
+          <div class="data-bar pull-right" style="width: {{ (it.gain.think / profiles.thinkMax) * 360 }}px;">
+            <div ng-if="it.gain.think > it.gain.exper" class="data-bar data-bar-sub pull-right" style="width: {{ ((it.gain.think - it.gain.exper) / profiles.thinkMax) * 360 }}px;"></div>
+          </div>
+        </div>
+      </td>
+      <td style="padding-left: 0; padding-right: 0; background: rgba(0, 0, 0, .08);">
+        <div class="avatar">{{ it.initials }}</div>
+      </td>
+      <td style="padding-left: 0;">
+        <div class="data-bar-container pull-left">
+          <div class="data-bar data-bar-comp data-bar-y-experiencing pos-left" style="width: 360px;">
+            <span class="data-bar-num data-bar-num-rt">{{ it.gain.exper }}</span>
+            <div class="data-bar-comp-sub data-bar-y-experiencing pos-right" style="width: {{ ((profiles.experMax - profiles.experMin) / profiles.experMax) * 360 }}px;">
+              <div class="data-bar-comp-sub data-bar-y-experiencing pos-right" style="width: {{ ((profiles.experMax - profiles.experAvg) / profiles.experMax) * 360 }}px;"></div>
+            </div>
+          </div>
+          <div class="data-bar pull-left" style="width: {{ (it.gain.exper / profiles.experMax) * 360 }}px">
+            <div ng-if="it.gain.exper > it.gain.think" class="data-bar data-bar-sub pull-left" style="width: {{ ((it.gain.exper - it.gain.think) / profiles.thinkMax) * 360 }}px;"></div>
+          </div>
+        </div>
+      </td>
+      <td>&nbsp;</td>
+      <td class="text-left">
+        <span class="text-y-{{ it.gain.index > 0 ? 'experiencing' : 'thinking' }}">
+          <span style="display: inline-block; width: 2em; text-align: right;">{{ it.gain.index }}</span>
+          &nbsp;&nbsp;
+          {{ it.gain.index > 0 ? 'Experiencing' : 'Thinking' }}
+        </span>
+      </td>
+      <td>&nbsp;</td>
+      <td>
+        <span class="label style-color-{{ getQuadrantData(it.stylePrefs[3], 'id') }}">{{ getQuadrantData(it.stylePrefs[3], 'name') }}</span>
+      </td>
+    </tr>
+  </tbody>
+</table>

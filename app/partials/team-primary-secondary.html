@@ -1,0 +1,166 @@
+<div class="pg-hd">
+  <h1>Our #1 and #2 favorite zones</h1>
+  <small>(first favorite in black, second favorite in white)</small>
+</div>
+
+<div class="quadrant-chart">
+  <div class="quad quad-1">
+    <div class="quad-fill style-color-1"></div>
+  </div>
+
+  <div class="quad quad-2">
+    <div class="quad-fill style-color-2"></div>
+  </div>
+
+  <div class="quad quad-3">
+    <div class="quad-fill style-color-3"></div>
+  </div>
+
+  <div class="quad quad-4">
+    <div class="quad-fill style-color-4"></div>
+  </div>
+
+  <div class="point-center">
+    <!-- <p class="quad-point" ng-repeat="it in team" style="bottom: {{ (it.gain.index > 0 ? (it.gain.exper - 15) : -(it.gain.think - 15)) * 8 }}px; left: {{ (it.use.index > 0 ? (it.use.idea - 15) : -(it.use.eval - 15)) * 8 }}px" title="{{ it.name }} "></p> -->
+
+    <p class="quad-point" ng-repeat="it in team" style="bottom: {{ (getPersonQuadPlotPoints(it, it.stylePrefs[3]).y + (getPersonQuadPlotPoints(it, it.stylePrefs[3]).y > 0 ? -15 : 15)) * 8 }}px; left: {{ (getPersonQuadPlotPoints(it, it.stylePrefs[3]).x + (getPersonQuadPlotPoints(it, it.stylePrefs[3]).x > 0 ? -15 : 15)) * 8 }}px">{{ it.initials }} <span class="tooltip">{{ it.name }}</span></p>
+
+    <p class="quad-point quad-point-alt" ng-repeat="it in team"
+      style="bottom: {{ (getPersonQuadPlotPoints(it, it.stylePrefs[2]).y + (getPersonQuadPlotPoints(it, it.stylePrefs[2]).y > 0 ? -15 : 15)) * 8 }}px; left: {{ (getPersonQuadPlotPoints(it, it.stylePrefs[2]).x + (getPersonQuadPlotPoints(it, it.stylePrefs[2]).x > 0 ? -15 : 15)) * 8 }}px">{{ it.initials }} <span class="tooltip">{{ it.name }}</span></p>
+  </div>
+
+  <div class="axis-ext axis-ext-x-pos"></div>
+  <div class="axis-ext axis-ext-x-neg"></div>
+  <div class="axis-ext axis-ext-y-pos"></div>
+  <div class="axis-ext axis-ext-y-neg"></div>
+  <div class="axis-label axis-label-x-pos">Using Knowledge<br> for Ideation</div>
+  <div class="axis-label axis-label-x-neg">Using Knowledge<br> for Evaluation</div>
+  <div class="axis-label axis-label-y-pos">Gaining Knowledge<br> by Experiencing</div>
+  <div class="axis-label axis-label-y-neg">Gaining Knowledge<br> by Thinking</div>
+</div>
+
+<table class="bar-chart-horz">
+  <caption>
+    <strong>Distribution of 1st + 2nd favorite profile types</strong>
+  </caption>
+  <tfoot>
+    <tr>
+      <td colspan="3">
+        <div class="td-container">
+          <div class="marker" style="left: 106px;">0</div>
+          <div class="marker" style="left: 202px;">15</div>
+          <div class="marker" style="left: 237px;">20</div>
+          <div class="marker" style="left: 271px;">25</div>
+          <div class="marker" style="left: 305px;">30</div>
+          <div class="marker" style="left: 340px;">35</div>
+          <div class="marker" style="left: 445px;">50</div>
+        </div>
+      </td>
+  </tfoot>
+  <tbody>
+    <tr class="spacer-row">
+      <th></th>
+      <td>
+        <div class="data-bar-container">
+          <div class="data-bar data-bar-comp">
+            <div class="data-bar-comp-sub border-left" style="width: 50%;"></div>
+            <div class="data-bar-comp-sub pos-left border-dark" style="width: 25%;"></div>
+          </div>
+        </div>
+      </td>
+      <th></th>
+    </tr>
+    <tr>
+      <th>Generators</th>
+      <td>
+        <div class="data-bar-container">
+          <div class="data-bar data-bar-comp">
+
+            <div class="data-bar-comp-sub border-left" style="left: 20%; width: 10%;"></div>
+            <div class="data-bar-comp-sub border-left" style="left: 15%; width: 20%;"></div>
+
+            <div class="data-bar-comp-sub border-left" style="width: 50%;"></div>
+            <div class="data-bar-comp-sub pos-left border-dark" style="width: 25%;"></div>
+
+            <div class="data-bar style-color-1" style="width: {{ ((profiles.styleCounts.primary.generators + profiles.styleCounts.secondary.generators) / (profiles.team.length * 2)) * 100 }}%;">
+              <span class="data-bar-num">{{ ((profiles.styleCounts.primary.generators + profiles.styleCounts.secondary.generators) / (profiles.team.length * 2)) * 100 | number:1 }}%
+            </div>
+          </div>
+        </div>
+      </td>
+      <th>&nbsp;</th>
+    </tr>
+    <tr>
+      <th>Conceptualizers</th>
+      <td>
+        <div class="data-bar-container">
+          <div class="data-bar data-bar-comp">
+
+            <div class="data-bar-comp-sub border-left" style="left: 20%; width: 10%;"></div>
+            <div class="data-bar-comp-sub border-left" style="left: 15%; width: 20%;"></div>
+
+            <div class="data-bar-comp-sub border-left" style="width: 50%;"></div>
+            <div class="data-bar-comp-sub pos-left border-dark" style="width: 25%;"></div>
+
+            <div class="data-bar style-color-2" style="width: {{ ((profiles.styleCounts.primary.conceptualizers + profiles.styleCounts.secondary.conceptualizers) / (profiles.team.length * 2)) * 100 }}%;">
+              <span class="data-bar-num">{{ ((profiles.styleCounts.primary.conceptualizers + profiles.styleCounts.secondary.conceptualizers) / (profiles.team.length * 2)) * 100 | number:1 }}%</span>
+            </div>
+          </div>
+        </div>
+      </td>
+      <th>&nbsp;</th>
+    </tr>
+    <tr>
+      <th>Optimizers</th>
+      <td>
+        <div class="data-bar-container">
+          <div class="data-bar data-bar-comp">
+
+            <div class="data-bar-comp-sub border-left" style="left: 20%; width: 10%;"></div>
+            <div class="data-bar-comp-sub border-left" style="left: 15%; width: 20%;"></div>
+
+            <div class="data-bar-comp-sub border-left" style="width: 50%;"></div>
+            <div class="data-bar-comp-sub pos-left border-dark" style="width: 25%;"></div>
+
+            <div class="data-bar style-color-3" style="width: {{ ((profiles.styleCounts.primary.optimizers + profiles.styleCounts.secondary.optimizers) / (profiles.team.length * 2)) * 100 }}%;">
+              <span class="data-bar-num">{{ ((profiles.styleCounts.primary.optimizers + profiles.styleCounts.secondary.optimizers) / (profiles.team.length * 2)) * 100 | number:1 }}%</span>
+            </div>
+          </div>
+        </div>
+      </td>
+      <th>&nbsp;</th>
+    </tr>
+    <tr>
+      <th>Implementers</th>
+      <td>
+        <div class="data-bar-container">
+          <div class="data-bar data-bar-comp">
+
+            <div class="data-bar-comp-sub border-left" style="left: 20%; width: 10%;"></div>
+            <div class="data-bar-comp-sub border-left" style="left: 15%; width: 20%;"></div>
+
+            <div class="data-bar-comp-sub border-left" style="width: 50%;"></div>
+            <div class="data-bar-comp-sub pos-left border-dark" style="width: 25%;"></div>
+
+            <div class="data-bar style-color-4" style="width: {{ ((profiles.styleCounts.primary.implementers + profiles.styleCounts.secondary.implementers) / (profiles.team.length * 2)) * 100 }}%;">
+              <span class="data-bar-num">{{ ((profiles.styleCounts.primary.implementers + profiles.styleCounts.secondary.implementers) / (profiles.team.length * 2)) * 100 | number:1 }}%</span>
+            </div>
+          </div>
+        </div>
+      </td>
+      <th>&nbsp;</th>
+    </tr>
+    <tr class="spacer-row">
+      <th></th>
+      <td>
+        <div class="data-bar-container">
+          <div class="data-bar data-bar-comp">
+            <div class="data-bar-comp-sub border-left" style="width: 50%;"></div>
+            <div class="data-bar-comp-sub pos-left border-dark" style="width: 25%;"></div>
+          </div>
+        </div>
+      </td>
+      <th></th>
+    </tr>
+  </tbody>
+</table>
